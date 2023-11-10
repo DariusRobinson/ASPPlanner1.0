@@ -50,7 +50,7 @@ namespace ASPPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TaskId,Name,Description")] Task task)
+        public async Task<IActionResult> Create([Bind("TaskId,Name,Description")] Models.Task task)
         {
             if (ModelState.IsValid)
             {
