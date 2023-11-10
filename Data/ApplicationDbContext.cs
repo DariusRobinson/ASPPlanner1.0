@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ASPPlanner.Models;
 
 namespace ASPPlanner.Data
 {
@@ -9,5 +10,6 @@ namespace ASPPlanner.Data
             : base(options)
         {
         }
+        public DbSet<ASPPlanner.Models.Task>? Task { get; set; }
     }
 }
