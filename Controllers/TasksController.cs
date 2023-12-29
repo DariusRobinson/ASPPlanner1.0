@@ -21,6 +21,13 @@ namespace ASPPlanner.Controllers
                         Problem("Entity set 'ApplicationDbContext.Task'  is null.");
         }
 
+        //GET: Tasks/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+
+        }
+
         // GET: Tasks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
