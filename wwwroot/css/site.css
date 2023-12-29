@@ -15,4 +15,9 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #eee;
+}
+
+.table tbody tr:hover td, .table tbody tr:hover th {
+    background-color:  antiquewhite;
 }

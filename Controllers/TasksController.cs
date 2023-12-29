@@ -164,7 +164,7 @@ namespace ASPPlanner.Controllers
         {
             if (_context.Task == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Task'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Task' is null.");
             }
             var task = await _context.Task.FindAsync(id);
             if (task != null)
