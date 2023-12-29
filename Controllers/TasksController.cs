@@ -28,6 +28,13 @@ namespace ASPPlanner.Controllers
 
         }
 
+        //POST: Tasks/ShowSearchResults
+        public async Task<IActionResult> ShowSearchResults(string SearchPhrase)
+        {
+            return View("Index", await _context.Task.Where(t => t.Name.Contains(SearchPhrase)).ToListAsync());
+
+        }
+
         // GET: Tasks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
