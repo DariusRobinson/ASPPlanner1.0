@@ -1,4 +1,5 @@
 ﻿using ASPPlanner.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -54,6 +55,9 @@ namespace ASPPlanner.Controllers
         }
 
         // GET: Tasks/Create
+
+        //This line 59 means you have to be logged in to access the following method.
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -62,6 +66,8 @@ namespace ASPPlanner.Controllers
         // POST: Tasks/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TaskId,Name,Description")] Models.Task task)
@@ -76,6 +82,7 @@ namespace ASPPlanner.Controllers
         }
 
         // GET: Tasks/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Task == null)
@@ -94,8 +101,11 @@ namespace ASPPlanner.Controllers
         // POST: Tasks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(int id, [Bind("TaskId,Name,Description")] Models.Task task)
         {
             if (id != task.TaskId)
@@ -127,6 +137,7 @@ namespace ASPPlanner.Controllers
         }
 
         // GET: Tasks/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Task == null)
@@ -145,6 +156,8 @@ namespace ASPPlanner.Controllers
         }
 
         // POST: Tasks/Delete/5
+
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
